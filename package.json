@@ -1,5 +1,5 @@
 {
-  "name": "exprest-boilerplate",
+  "name": "exprest-ecommerce",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/notblessy/expREST-boilerplate.git"
+    "url": "git+https://github.com/notblessy/expREST-eCommerce.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/notblessy/expREST-boilerplate/issues"
+    "url": "https://github.com/notblessy/expREST-eCommerce/issues"
   },
-  "homepage": "https://github.com/notblessy/expREST-boilerplate#readme",
+  "homepage": "https://github.com/notblessy/expREST-eCommerce#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
