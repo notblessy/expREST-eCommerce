@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "exprest_boilerplate",
+    "database": "exprest_ecommerce",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
