@@ -3,6 +3,7 @@ const expressJWT = require('express-jwt');
 
 const config = require('./config');
 const auth = require('./controllers/auth');
+const product = require('./controllers/products');
 
 const routes = Router();
 
@@ -21,5 +22,10 @@ routes.post('/login', auth.login);
 routes.get('/profile', jwtMiddleware, auth.profile);
 routes.put('/profile', jwtMiddleware, auth.edit);
 routes.put('/profile/password', jwtMiddleware, auth.editPassword);
+
+routes.get('/product', jwtMiddleware, product.allProduct);
+routes.post('/product', jwtMiddleware, product.createProduct);
+routes.put('/product/:id', jwtMiddleware, product.updateProduct);
+routes.delete('/product/:id', jwtMiddleware, product.deleteProduct);
 
 module.exports = routes;
