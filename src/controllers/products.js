@@ -5,7 +5,7 @@ const { nanoid } = require('nanoid');
 
 exports.allProduct = async (req, res) => {
   try {
-    const product = await db.User.findAll();
+    const product = await db.Product.findAll();
     return res.json({
       success: true,
       data: product,
@@ -41,12 +41,14 @@ exports.createProduct = async (req, res) => {
     const data = await db.Product.create(
       {
         name: req.body.name,
+        sku: req.body.sku,
         slug: slug,
         price: req.body.price,
         stock_qty: req.body.stock_qty,
       },
       { transaction: trx }
     );
+    console.log(req.body.sku);
 
     await trx.commit();
 
@@ -72,6 +74,7 @@ exports.updateProduct = async (req, res) => {
     const product = await db.Product.update(
       {
         name: req.body.name,
+        sku: req.body.sku,
         slug: slug,
         price: req.body.price,
         stock_qty: req.body.stock_qty,
