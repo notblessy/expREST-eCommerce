@@ -4,6 +4,7 @@ const expressJWT = require('express-jwt');
 const config = require('./config');
 const auth = require('./controllers/auth');
 const product = require('./controllers/products');
+const cart = require('./controllers/carts');
 
 const routes = Router();
 
@@ -27,5 +28,10 @@ routes.get('/product', jwtMiddleware, product.allProduct);
 routes.post('/product', jwtMiddleware, product.createProduct);
 routes.put('/product/:id', jwtMiddleware, product.updateProduct);
 routes.delete('/product/:id', jwtMiddleware, product.deleteProduct);
+
+routes.get('/carts', jwtMiddleware, cart.allCart);
+routes.post('/carts', jwtMiddleware, cart.addToCart);
+routes.put('/carts/:id', jwtMiddleware, cart.editQty);
+routes.delete('/carts/:id', jwtMiddleware, cart.deleteCart);
 
 module.exports = routes;
