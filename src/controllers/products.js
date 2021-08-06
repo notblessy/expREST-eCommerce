@@ -38,8 +38,11 @@ exports.createProduct = async (req, res) => {
 
   try {
     const slug = paramCase(req.body.name) + '-' + nanoid();
+    const productID = nanoid();
+
     const data = await db.Product.create(
       {
+        id: productID,
         name: req.body.name,
         sku: req.body.sku,
         slug: slug,
@@ -70,9 +73,11 @@ exports.createProduct = async (req, res) => {
 exports.updateProduct = async (req, res) => {
   try {
     const slug = paramCase(req.body.name) + '-' + nanoid();
+    const productID = nanoid();
 
     const product = await db.Product.update(
       {
+        id: productID,
         name: req.body.name,
         sku: req.body.sku,
         slug: slug,
