@@ -5,6 +5,7 @@ const config = require('./config');
 const auth = require('./controllers/auth');
 const product = require('./controllers/products');
 const cart = require('./controllers/carts');
+const address = require('./controllers/addresses');
 
 const routes = Router();
 
@@ -33,5 +34,10 @@ routes.get('/carts', jwtMiddleware, cart.allCart);
 routes.post('/carts', jwtMiddleware, cart.addToCart);
 routes.put('/carts/:id', jwtMiddleware, cart.editQty);
 routes.delete('/carts/:id', jwtMiddleware, cart.deleteCart);
+
+routes.get('/address', jwtMiddleware, address.allAddresses);
+routes.post('/address', jwtMiddleware, address.createAddress);
+routes.put('/address/:id', jwtMiddleware, address.updateAddress);
+routes.delete('/address/:id', jwtMiddleware, address.deleteAddress);
 
 module.exports = routes;
