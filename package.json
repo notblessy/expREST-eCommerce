@@ -28,6 +28,7 @@
     "express": "^4.17.1",
     "express-jwt": "^6.0.0",
     "indicative": "^7.4.4",
+    "invoice-number": "^1.0.6",
     "ioredis": "^4.27.7",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",

@@ -8,7 +8,8 @@ const User = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.hasMany(models.Address);
+      this.hasMany(models.Order, { foreignKey: 'user_id' });
+      this.hasMany(models.Address, { foreignKey: 'user_id' });
     }
   }
   User.init(
@@ -16,6 +17,7 @@ const User = (sequelize, DataTypes) => {
       name: DataTypes.STRING,
       email: DataTypes.STRING,
       password: DataTypes.STRING,
+      role: DataTypes.ENUM('ADMIN', 'CUSTOMER'),
     },
     {
       sequelize,

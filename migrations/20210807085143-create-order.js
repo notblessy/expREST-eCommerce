@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('addresses', {
+    await queryInterface.createTable('orders', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,35 +17,40 @@ module.exports = {
         allowNull: false,
         onDelete: 'CASCADE',
       },
-      name: {
+      invoice_no: {
         type: Sequelize.STRING,
       },
-      phone: {
+      customer_name: {
         type: Sequelize.STRING,
       },
-      address: {
-        type: Sequelize.TEXT,
+      customer_phone: {
+        type: Sequelize.STRING,
       },
-      province: {
-        type: Sequelize.STRING(100),
+      customer_address: {
+        type: Sequelize.STRING,
       },
-      regency: {
-        type: Sequelize.STRING(100),
+      courier: {
+        type: Sequelize.STRING,
       },
-      district: {
-        type: Sequelize.STRING(100),
+      status: {
+        type: Sequelize.ENUM(
+          'WAITING_PAYMENT',
+          'PAYMENT_RECEIVED',
+          'PREPARING',
+          'READY',
+          'DELIVERING',
+          'DELIVERED',
+          'DONE',
+          'CANCELLED',
+          'REJECTED'
+        ),
       },
-      village: {
-        type: Sequelize.STRING(100),
+      total: {
+        type: Sequelize.INTEGER,
       },
-      postal_code: {
-        type: Sequelize.STRING(25),
-      },
-      longitude: {
-        type: Sequelize.DECIMAL(11, 8),
-      },
-      latitude: {
-        type: Sequelize.DECIMAL(11, 8),
+      paid_at: {
+        allowNull: true,
+        type: Sequelize.DATE,
       },
       createdAt: {
         allowNull: false,
@@ -58,6 +63,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('addresses');
+    await queryInterface.dropTable('orders');
   },
 };

@@ -39,6 +39,7 @@ exports.createAddress = async (req, res) => {
       {
         user_id: req.user.identity,
         name: req.body.name,
+        phone: req.body.phone,
         address: req.body.address,
         province: req.body.province,
         regency: req.body.regency,
@@ -75,6 +76,7 @@ exports.updateAddress = async (req, res) => {
       {
         user_id: req.user.identity,
         name: req.body.name,
+        phone: req.body.phone,
         address: req.body.address,
         province: req.body.province,
         regency: req.body.regency,
