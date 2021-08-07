@@ -100,6 +100,7 @@ exports.allCart = async (req, res) => {
         product: product,
       };
     });
+
     return res.json({
       success: true,
       data: cartResult,

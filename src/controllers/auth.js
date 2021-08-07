@@ -46,6 +46,7 @@ exports.register = async (req, res) => {
         email: req.body.email,
         name: req.body.name,
         password: hashed,
+        role: 'CUSTOMER',
       },
       { transaction: trx }
     );

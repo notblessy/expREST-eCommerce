@@ -6,6 +6,7 @@ const auth = require('./controllers/auth');
 const product = require('./controllers/products');
 const cart = require('./controllers/carts');
 const address = require('./controllers/addresses');
+const order = require('./controllers/orders');
 
 const routes = Router();
 
@@ -39,5 +40,9 @@ routes.get('/address', jwtMiddleware, address.allAddresses);
 routes.post('/address', jwtMiddleware, address.createAddress);
 routes.put('/address/:id', jwtMiddleware, address.updateAddress);
 routes.delete('/address/:id', jwtMiddleware, address.deleteAddress);
+
+routes.post('/order', jwtMiddleware, order.createOrder);
+routes.get('/order/:id', jwtMiddleware, order.getOrder);
+routes.put('/order/:id', jwtMiddleware, order.confirmPayment);
 
 module.exports = routes;
