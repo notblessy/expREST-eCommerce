@@ -65,7 +65,6 @@ exports.createOrder = async (req, res) => {
         product: product,
       };
     });
-    console.log(cartResult);
     const total = cartResult.reduce((total, cartItem) => {
       total += cartItem.product.price * cartItem.qty;
       return total;
@@ -123,7 +122,7 @@ exports.createOrder = async (req, res) => {
       {
         actor: 'CUSTOMER',
         status: order.status,
-        order_id: order.get('id'),
+        order_id: order.id,
       },
       { transaction: trx }
     );
@@ -186,7 +185,7 @@ exports.confirmPayment = async (req, res) => {
 
           product.stock_qty -= item.qty;
 
-          return product.save();
+          return product.save({ transaction: trx });
         });
       })
     );
