@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Product.init(
     {
+      id: { type: DataTypes.STRING, primaryKey: true },
       name: DataTypes.STRING,
       sku: DataTypes.STRING,
       slug: DataTypes.STRING,
@@ -22,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'Product',
+      tableName: 'products',
     }
   );
   return Product;
