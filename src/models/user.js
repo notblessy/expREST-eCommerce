@@ -14,6 +14,7 @@ const User = (sequelize, DataTypes) => {
   }
   User.init(
     {
+      id: { type: DataTypes.STRING, primaryKey: true },
       name: DataTypes.STRING,
       email: DataTypes.STRING,
       password: DataTypes.STRING,
@@ -22,6 +23,7 @@ const User = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'User',
+      tableName: 'users',
     }
   );
   return User;
